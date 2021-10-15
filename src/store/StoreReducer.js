@@ -1,16 +1,21 @@
 const types = {
+	changeLocation: 'location - change',
 	changeUnit: 'unit - change',
 }
-
 const initialStore = {
-	unitM: true,
+	unitM: 'C',
 	currentLocation: null,
-	searchLocation: null,
+	searchLocation: '',
 	suggestionSearch: [],
 }
 
 const storeReducer = (state, action) => {
 	switch (action.type) {
+		case types.changeLocation:
+			return {
+				...state,
+				currentLocation: action.payload,
+			}
 		case types.changeUnit:
 			return {
 				...state,

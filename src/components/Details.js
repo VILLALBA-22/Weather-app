@@ -7,6 +7,12 @@ import InfoCurrentDay from './InfoCurrentDay'
 const ContainerDetails = styled.div`
 	background-color: #100e1d;
 	padding: 20px;
+	@media (min-width: 730px) {
+		padding-right: 0px;
+	}
+	@media (min-width: 1050px) {
+		width: 75%;
+	}
 `
 
 const Details = () => {

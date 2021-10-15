@@ -3,12 +3,19 @@ import styled from 'styled-components'
 
 const ContainerNextDays = styled.div`
 	display: flex;
-	justify-content: space-between;
-	margin-top: 20px;
-	padding: 30px;
+	max-width: 700px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 15px 10px 30px 30px;
+	@media (min-width: 750px) {
+		padding-left: 0px;
+		justify-content: flex-start;
+	}
 `
 const Day = styled.div`
 	display: flex;
+	margin: 0px 18px 20px 0px;
 	flex-direction: column;
 	align-items: center;
 	width: 120px;
@@ -40,6 +47,38 @@ const MinTempeture = styled(MaxTempeture)`
 export default function InfoNextDays() {
 	return (
 		<ContainerNextDays>
+			<Day>
+				<TitleDay>Tomorrow</TitleDay>
+				<ImgDay src='./images/Snow.png' />
+				<Tempeture>
+					<MaxTempeture>16°C</MaxTempeture>
+					<MinTempeture>11°C</MinTempeture>
+				</Tempeture>
+			</Day>
+			<Day>
+				<TitleDay>Tomorrow</TitleDay>
+				<ImgDay src='./images/Snow.png' />
+				<Tempeture>
+					<MaxTempeture>16°C</MaxTempeture>
+					<MinTempeture>11°C</MinTempeture>
+				</Tempeture>
+			</Day>
+			<Day>
+				<TitleDay>Tomorrow</TitleDay>
+				<ImgDay src='./images/Snow.png' />
+				<Tempeture>
+					<MaxTempeture>16°C</MaxTempeture>
+					<MinTempeture>11°C</MinTempeture>
+				</Tempeture>
+			</Day>
+			<Day>
+				<TitleDay>Tomorrow</TitleDay>
+				<ImgDay src='./images/Snow.png' />
+				<Tempeture>
+					<MaxTempeture>16°C</MaxTempeture>
+					<MinTempeture>11°C</MinTempeture>
+				</Tempeture>
+			</Day>
 			<Day>
 				<TitleDay>Tomorrow</TitleDay>
 				<ImgDay src='./images/Snow.png' />

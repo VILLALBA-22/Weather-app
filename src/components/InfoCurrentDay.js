@@ -3,8 +3,15 @@ import styled from 'styled-components'
 
 const ContainerInfo = styled.div`
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 50px;
+	max-width: 700px;
+	margin: 0 auto;
+	@media (min-width: 750px) {
+		padding-left: 0px;
+		justify-content: flex-start;
+	}
 `
 
 const Title = styled.h3`
@@ -12,10 +19,12 @@ const Title = styled.h3`
 	font-weight: 700;
 	font-size: 24px;
 	margin-bottom: 30px;
+	width: 100%;
 `
 
 const ItemInfo = styled.div`
 	background: #1e213a;
+	max-width: 328px;
 	margin-bottom: 30px;
 	display: flex;
 	padding: 20px;
@@ -45,6 +54,9 @@ const ItemInfo = styled.div`
 		font-size: 14px;
 		font-weight: 500;
 	}
+	@media (min-width: 658px) {
+		margin-right: 20px;
+	}
 `
 
 const HumidityContainer = styled.div`
@@ -56,22 +68,24 @@ const HumidityContainer = styled.div`
 const HumidityPercent = styled.div`
 	display: flex;
 	justify-content: space-between;
+	color: #a09fb1;
 `
 const HumidityProgress = styled.div`
 	width: 100%;
 	height: 10px;
 	border-radius: 12px;
 	overflow: hidden;
-	background: grey;
+	background: #e7e7eb;
 	margin-top: 3px;
 `
 const HumidityProgressNumber = styled.div`
 	width: 70%;
 	height: 10px;
-	background: yellow;
+	background: #ffec65;
 `
 const HumidityProgressPercent = styled.div`
 	margin-top: 3px;
+	color: #a09fb1;
 
 	display: flex;
 	justify-content: flex-end;
@@ -97,9 +111,9 @@ export default function InfoCurrentDay() {
 				</p>
 				<HumidityContainer>
 					<HumidityPercent>
-						<span>0%</span>
-						<span>50%</span>
-						<span>100%</span>
+						<span>0</span>
+						<span>50</span>
+						<span>100</span>
 					</HumidityPercent>
 					<HumidityProgress>
 						<HumidityProgressNumber />
