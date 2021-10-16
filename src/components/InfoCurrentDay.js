@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { StoreContext } from '../store/StoreProvider'
 
 const ContainerInfo = styled.div`
 	display: flex;
@@ -79,7 +80,7 @@ const HumidityProgress = styled.div`
 	margin-top: 3px;
 `
 const HumidityProgressNumber = styled.div`
-	width: 70%;
+	width: ${props => props.percent}%;
 	height: 10px;
 	background: #ffec65;
 `
@@ -92,22 +93,27 @@ const HumidityProgressPercent = styled.div`
 `
 
 export default function InfoCurrentDay() {
+	const [store, dispatch] = useContext(StoreContext)
+	let currentDay = store.currentLocation.consolidated_weather[0]
 	return (
 		<ContainerInfo>
 			<Title>Today’s Hightlights</Title>
 			<ItemInfo>
 				<h3 className='title'>Wind status</h3>
 				<p className='number'>
-					7<span className='unit'>mph</span>
+					{parseInt(currentDay.wind_speed)}
+					<span className='unit'>mph</span>
 				</p>
 				<p className='compass'>
-					<i class='far fa-compass'></i> WSW
+					<i className='far fa-compass' style={{ marginRight: '5px' }}></i>
+					{currentDay.wind_direction_compass}
 				</p>
 			</ItemInfo>
 			<ItemInfo>
 				<h3 className='title'>Humidity</h3>
 				<p className='number'>
-					84<span className='unit'>%</span>
+					{currentDay.humidity}
+					<span className='unit'>%</span>
 				</p>
 				<HumidityContainer>
 					<HumidityPercent>
@@ -116,7 +122,7 @@ export default function InfoCurrentDay() {
 						<span>100</span>
 					</HumidityPercent>
 					<HumidityProgress>
-						<HumidityProgressNumber />
+						<HumidityProgressNumber percent={currentDay.humidity} />
 					</HumidityProgress>
 					<HumidityProgressPercent>%</HumidityProgressPercent>
 				</HumidityContainer>
@@ -124,13 +130,16 @@ export default function InfoCurrentDay() {
 			<ItemInfo>
 				<h3 className='title'>Visibility</h3>
 				<p className='number'>
-					6,4<span className='unit'>miles</span>
+					{currentDay.visibility.toFixed(1)}
+					<span className='unit'>miles</span>
 				</p>
 			</ItemInfo>
 			<ItemInfo>
 				<h3 className='title'>Air Pressure</h3>
 				<p className='number'>
-					998<span className='unit'>md</span>
+					{parseInt(currentDay.air_pressure)}
+
+					<span className='unit'>md</span>
 				</p>
 			</ItemInfo>
 		</ContainerInfo>

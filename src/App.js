@@ -1,5 +1,4 @@
-import React, {useContext ,useLayoutEffect} from 'react';
-import getCurrentLocation from './helpers/getCurrentLocation'
+import React, { useContext, useLayoutEffect } from 'react'
 import StoreProvider from './store/StoreProvider'
 import Main from './components/Main'
 import Details from './components/Details'
@@ -15,8 +14,6 @@ const Container = styled.div`
 `
 
 function App() {
-	
-	getCurrentLocation()
 	return (
 		<StoreProvider>
 			<Container>

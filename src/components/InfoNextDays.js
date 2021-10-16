@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { StoreContext } from '../store/StoreProvider'
+import formatDate from '../helpers/formatDate'
+import changeUnit from '../helpers/changeUnit'
 
 const ContainerNextDays = styled.div`
 	display: flex;
@@ -20,19 +23,24 @@ const Day = styled.div`
 	align-items: center;
 	width: 120px;
 	padding: 18px;
+	height: 190px;
 	background: #1e213a;
+	justify-content: space-between;
 `
 const TitleDay = styled.h3`
 	color: #e7e7eb;
 	margin-bottom: 10px;
+	font-weight: 500;
+	font-size: 14px;
 	align-text: center;
 `
 const ImgDay = styled.img`
 	width: 72px;
+	margin-bottom: 15px;
 `
 const Tempeture = styled.div`
 	display: flex;
-	margin-top: 30px;
+	margin-top: 5px;
 	width: 100%;
 	justify-content: space-between;
 `
@@ -45,48 +53,44 @@ const MinTempeture = styled(MaxTempeture)`
 `
 
 export default function InfoNextDays() {
+	const [store, dispatch] = useContext(StoreContext)
+
 	return (
 		<ContainerNextDays>
-			<Day>
-				<TitleDay>Tomorrow</TitleDay>
-				<ImgDay src='./images/Snow.png' />
-				<Tempeture>
-					<MaxTempeture>16°C</MaxTempeture>
-					<MinTempeture>11°C</MinTempeture>
-				</Tempeture>
-			</Day>
-			<Day>
-				<TitleDay>Tomorrow</TitleDay>
-				<ImgDay src='./images/Snow.png' />
-				<Tempeture>
-					<MaxTempeture>16°C</MaxTempeture>
-					<MinTempeture>11°C</MinTempeture>
-				</Tempeture>
-			</Day>
-			<Day>
-				<TitleDay>Tomorrow</TitleDay>
-				<ImgDay src='./images/Snow.png' />
-				<Tempeture>
-					<MaxTempeture>16°C</MaxTempeture>
-					<MinTempeture>11°C</MinTempeture>
-				</Tempeture>
-			</Day>
-			<Day>
-				<TitleDay>Tomorrow</TitleDay>
-				<ImgDay src='./images/Snow.png' />
-				<Tempeture>
-					<MaxTempeture>16°C</MaxTempeture>
-					<MinTempeture>11°C</MinTempeture>
-				</Tempeture>
-			</Day>
-			<Day>
-				<TitleDay>Tomorrow</TitleDay>
-				<ImgDay src='./images/Snow.png' />
-				<Tempeture>
-					<MaxTempeture>16°C</MaxTempeture>
-					<MinTempeture>11°C</MinTempeture>
-				</Tempeture>
-			</Day>
+			{store.currentLocation.consolidated_weather.map((day, index) => {
+				if (index === 0) {
+					return null
+				}
+				let weatherState = day.weather_state_name.replace(' ', '')
+
+				return (
+					<Day key={day.id}>
+						<TitleDay>
+							{index === 1
+								? 'Tomorrow'
+								: formatDate(
+										store.currentLocation.consolidated_weather[index]
+											.applicable_date
+								  )}
+						</TitleDay>
+						<ImgDay src={`./images/${weatherState}.png`} />
+						<Tempeture>
+							<MaxTempeture>
+								{store.unitM === 'F'
+									? changeUnit(parseInt(day.max_temp))
+									: parseInt(day.max_temp)}
+								°{store.unitM}
+							</MaxTempeture>
+							<MinTempeture>
+								{store.unitM === 'F'
+									? changeUnit(parseInt(day.min_temp))
+									: parseInt(day.min_temp)}
+								°{store.unitM}
+							</MinTempeture>
+						</Tempeture>
+					</Day>
+				)
+			})}
 		</ContainerNextDays>
 	)
 }
