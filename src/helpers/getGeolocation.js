@@ -1,6 +1,6 @@
 const axios = require('axios').default
-let url = 'https://www.metaweather.com/api/location/search/?lattlong='
-let ulfForWoeid = 'https://www.metaweather.com/api/location/'
+let url = 'https://meta-weather.vercel.app/api/location/search/?lattlong='
+let ulfForWoeid = 'https://meta-weather.vercel.app/api/location/'
 
 export default function getGeolocation(dispatch, types, setIsLoadingGeo) {
 	let options = {

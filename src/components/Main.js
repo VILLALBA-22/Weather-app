@@ -98,7 +98,7 @@ export default function Main() {
 
 	const getCurrentLocation = () => {
 		axios({
-			url: 'https://www.metaweather.com/api/location/2487956/',
+			url: 'https://meta-weather.vercel.app/api/location/2487956/',
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
