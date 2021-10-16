@@ -8,4 +8,4 @@ Javascript, HTML, CSS, styled-components, date-fns, axios, React, Context, UseRe
 
 ## [Preview site]
 
-[preview site]: https://evening-plains-85772.herokuapp.com/
+[preview site]: https://infinite-forest-60534.herokuapp.com/
