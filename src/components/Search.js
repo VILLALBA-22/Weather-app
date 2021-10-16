@@ -111,7 +111,7 @@ const Search = React.forwardRef(({ handleOpenSearch }, ref) => {
 		loader.width = '19'
 		e.target.appendChild(loader)
 		axios({
-			url: `https://meta-weather.vercel.app/api/location/${woeid}`,
+			url: `https://cors-anywhere.herokuapp.com/https://meta-weather.vercel.app/api/location/${woeid}`,
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
