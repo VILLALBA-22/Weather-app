@@ -95,7 +95,7 @@ const Search = React.forwardRef(({ handleOpenSearch }, ref) => {
 	const handleSubmit = e => {
 		e.preventDefault()
 		axios({
-			url: `https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${textToSearch}`,
+			url: `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${textToSearch}`,
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
