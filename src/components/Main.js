@@ -98,7 +98,7 @@ export default function Main() {
 
 	const getCurrentLocation = () => {
 		axios({
-			url: 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/2487956/',
+			url: 'https://www.metaweather.com/api/location/2487956/',
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
