@@ -126,6 +126,7 @@ export default function Main() {
 			openSearch.current.classList.toggle('open-display')
 		}
 	}
+
 	return (
 		<MainDetails>
 			<Search ref={openSearch} handleOpenSearch={handleOpenSearch} />
@@ -164,7 +165,8 @@ export default function Main() {
 			<TempetureDate>
 				Today{' '}
 				{formatDate(
-					store.currentLocation.consolidated_weather[0].applicable_date
+					store.currentLocation.consolidated_weather[0].applicable_date,
+					store.currentLocation.timezone
 				)}
 			</TempetureDate>
 			<Location>
