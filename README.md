@@ -8,4 +8,4 @@ Javascript, HTML, CSS, styled-components, date-fns, axios, React, Context, UseRe
 
 ## [Preview site]
 
-[preview site]: https://infinite-forest-60534.herokuapp.com/
+[preview site]: https://fervent-edison-f0969a.netlify.app/
