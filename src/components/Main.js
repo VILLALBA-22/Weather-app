@@ -98,7 +98,7 @@ export default function Main() {
 
 	const getCurrentLocation = () => {
 		axios({
-			url: 'https://cors-anywhere.herokuapp.com/https://meta-weather.vercel.app/api/location/2487956/',
+			url: 'https://mighty-citadel-78589.herokuapp.com/https://meta-weather.vercel.app/api/location/2487956/',
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

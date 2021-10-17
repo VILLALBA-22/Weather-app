@@ -95,7 +95,7 @@ const Search = React.forwardRef(({ handleOpenSearch }, ref) => {
 	const handleSubmit = e => {
 		e.preventDefault()
 		axios({
-			url: `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${textToSearch}`,
+			url: `https://mighty-citadel-78589.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${textToSearch}`,
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const Search = React.forwardRef(({ handleOpenSearch }, ref) => {
 		loader.width = '19'
 		e.target.appendChild(loader)
 		axios({
-			url: `https://cors-anywhere.herokuapp.com/https://meta-weather.vercel.app/api/location/${woeid}`,
+			url: `https://mighty-citadel-78589.herokuapp.com/https://meta-weather.vercel.app/api/location/${woeid}`,
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

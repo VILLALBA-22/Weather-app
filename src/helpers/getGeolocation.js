@@ -1,8 +1,8 @@
 const axios = require('axios').default
 let url =
-	'https://cors-anywhere.herokuapp.com/https://meta-weather.vercel.app/api/location/search/?lattlong='
+	'https://mighty-citadel-78589.herokuapp.com/https://meta-weather.vercel.app/api/location/search/?lattlong='
 let ulfForWoeid =
-	'https://cors-anywhere.herokuapp.com/https://meta-weather.vercel.app/api/location/'
+	'https://mighty-citadel-78589.herokuapp.com/https://meta-weather.vercel.app/api/location/'
 
 export default function getGeolocation(dispatch, types, setIsLoadingGeo) {
 	let options = {
